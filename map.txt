@@ -564,6 +564,11 @@ Your Journey is Over
 Congratulations! As a prize, I will give you this secret. Technically, my "riddles" were actually just trivia questions, so maybe "riddles" has a use else where? Also, I was told to give you this: "flag{pfft_what_a_gamer_92101}"
 south:106
 
+113
+Friendship Forever
+You happen to stumble upon another dimension and drop into the "Friendship" world! It is very annoying, as all you hear are voices chanting "flag{friendship_always_works_11259}"...
+
+
 ---
 0
 Sword of Destiny
