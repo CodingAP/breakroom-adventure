@@ -1,0 +1,577 @@
+MAP_DATA
+0
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:10 east:1
+
+1
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:2 west:0
+
+2
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:12 east:3 west:1
+
+3
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:4 west:2
+
+4
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around...
+west:3
+
+5
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:15 east:6
+
+6
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:7 west:5
+
+7
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:17 east:8 west:6
+
+8
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:9 west:7
+
+9
+The End of The Maze
+You finally see the exit, with a pathway towards an impressive looking castle. On a sign outside the maze, you see "flag{one_small_step_29103}"...
+north:103 south:19 west:8
+
+10
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:0 east:11
+
+11
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:21 west:10
+
+12
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:2 east:13
+
+13
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:14 west:12
+
+14
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:15 west:13
+
+15
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:5 west:14
+
+16
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:26 east:17
+
+17
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:7 west:16
+
+18
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around...
+east:19
+
+19
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:9 west:18
+
+20
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:30 east:21
+
+21
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:11 west:20
+
+22
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:32 east:23
+
+23
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:33 west:22
+
+24
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:34 east:25
+
+25
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:35 west:24
+
+26
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:16 east:27
+
+27
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:28 west:26
+
+28
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:29 west:27
+
+29
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:39 west:28
+
+30
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:20 east:31
+
+31
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:32 west:30
+
+32
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:22 west:31
+
+33
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:23 east:34
+
+34
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:24 west:33
+
+35
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:25 east:36
+
+36
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around. However, you trip over something as you turn...
+west:35
+key:1
+37
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:47 east:38
+
+38
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:39 west:37
+
+39
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:29 south:49 west:38
+
+40
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:50 east:41
+
+41
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:51 west:40
+
+42
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:52 east:43
+
+43
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:44 west:42
+
+44
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:45 west:43
+
+45
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:55 west:44
+
+46
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:56 east:47
+
+47
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:37 west:46
+
+48
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around...
+south:58
+
+49
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:39 south:59
+
+50
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:40 south:60
+
+51
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:41 east:52
+
+52
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:42 west:51
+
+53
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:63 east:54
+
+54
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:55 west:53
+
+55
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:45 east:56 west:54
+
+56
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:46 west:55
+
+57
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:67 east:58
+
+58
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:48 south:68 west:57
+
+59
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:49 south:69
+
+60
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:50 south:70 east:61
+
+61
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:62 west:60
+
+62
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:72 west:61
+
+63
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around...
+north:53
+
+64
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:74 east:65
+
+65
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:75 west:64
+
+66
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:76 east:67
+
+67
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:57 south:77 west:66
+
+68
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around...
+north:58
+
+69
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:59 south:79
+
+70
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:60 south:80
+
+71
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around...
+south:81
+
+72
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:62 south:82
+
+73
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:83 east:74
+
+74
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:64 west:73
+
+75
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:65 south:85
+
+76
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around...
+north:66
+
+77
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:67 south:87 east:78
+
+78
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:79 west:77
+
+79
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:69 west:78
+
+80
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:70 east:81
+
+81
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:71 south:91 west:80
+
+82
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:72 south:92
+
+83
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:73 east:84
+
+84
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:94 west:83
+
+85
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:75 east:86
+
+86
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:96 west:85
+
+87
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:77 south:97
+
+88
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:98 east:89
+
+89
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+south:99 west:88
+
+90
+The Start of The Maze
+You are in a maze that continues in all directions. You see all sorts of pathways, but everything seems so uniform...
+south:102 east:91
+
+91
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:81 west:90
+
+92
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:82 east:93
+
+93
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+east:94 west:92
+
+94
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:84 west:93
+
+95
+A Dead End of The Maze
+You look around and see that you have nowhere else forward, so you must turn around. However, you do see a glimmer on the ground...
+east:96
+sword:0
+96
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:86 west:95
+
+97
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:87 east:98
+
+98
+The Maze
+You are in still in a maze that continues in all directions. The walls are uniform and repeating...
+north:88 west:97
+
+99
+Danger in The Maze
+You encounter a goblin, but it seems docile. It looks at you as it sits in the corner of the walls. It seems to be lost and has given up...
+north:89
+
+100
+Exit
+Wow, why did you choose this option? Now it is time to leave you...
+
+
+101
+Gates of Adventure
+You see a large structure in front of you. It looks like there is an adventure brewing forward...
+north:102 south:100
+
+102
+Labyrinth Entrance
+You see the entrance to the structure. The start of a long and winding maze, it seems...
+north:90 south:101
+
+103
+Pathway to The Castle
+You walk forward towards a large castle. It seems like you journey is just about over...
+north:105 south:9
+
+104
+A Fight in The Maze
+You swing your sword, and the goblin takes it as a challenge!
+north:89
+
+105
+The Castle
+You stand in front of the entrance for the castle. The gate seems to be locked as indicated by the extremely large padlock...
+south:103
+
+106
+The Castle (Unlocked)
+You stand in front of the entrance for the castle. The gate is down and you see a man in the main room. On the back of the large padlock, you see "flag{did_you_backtrack_48421}"...
+north:107 south:103
+
+107
+The King's Room
+You are in the middle of a room with a throne. The man sitting on the throne says, "Ah, I see you have made it through the maze. It seems like you are up for a challenge, so why don't you step foward so I can see what you got!"
+north:108 south:106
+
+108
+Riddle #1
+I will state three riddles, and if you get them all correct, I will let you in on a secret. If not, I will kick you out of the castle! Let's begin: In Zork I: The Great Underground Empire, what is the item required to safely cross the rainbow bridge? A. Broomstick B. Jeweled egg C. Crystal sphere D. Bucket of Water
+a:111 b:109 c:111 d:111
+
+109
+Riddle #2
+Great job! Here is another riddle: In The Hitchhiker's Guide to the Galaxy text adventure, what must you use to avoid dying from the Babel fish-related puzzle? A. Cup of tea B. Towel C. Satchel D. Glass of Water
+a:111 b:110 c:111 d:111
+
+110
+Riddle #3
+Almost there! Final riddle: In A Mind Forever Voyaging, what is the name of the protagonist, who is a sentient computer simulation? A. PRISM B. PROTEUS C. PERSEUS D. PROMETHEUS
+a:112 b:111 c:111 d:111
+
+111
+Wrong Answer
+Uh oh! That is not correct! Please leave now before I lose my mind!
+south:106
+
+112
+Your Journey is Over
+Congratulations! As a prize, I will give you this secret. Technically, my "riddles" were actually just trivia questions, so maybe "riddles" has a use else where? Also, I was told to give you this: "flag{pfft_what_a_gamer_92101}"
+south:106
+
+---
+0
+Sword of Destiny
+The sword that will lead you to victory...
+99
+104
+1
+Extremely Large Key
+This key is comically large, as if it were a reference to something...
+105
+106

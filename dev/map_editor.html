@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakroom Adventure Map Editor</title>
+    <style>
+        .edit-section {
+            display: none;
+        }
+
+        .edit-section.show {
+            display: block;
+        }
+
+        #room-description, #item-description {
+            width: 500px
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="file-select">
+    <button id="save-map">Save</button>
+    <button id="save-encrypted-map">Save as Encrypted</button>
+
+    <p>Edit Room?: <input type="radio" name="editor" value="edit-room" id="edit-room-radio" checked></p>
+    <p>Edit Item?: <input type="radio" name="editor" value="edit-item" id="edit-item-radio"></p>
+
+    <div id="edit-room-info" class="edit-section show">
+        <select id="room-selection"></select>
+        <button id="add-room">Add Room</button>
+        <button id="delete-room">Delete Room</button><br />
+        <input type="text" id="room-name" placeholder="Room Name...">
+        <input type="text" id="room-description" placeholder="Room Description...">
+
+        <p>Directions: <button id="add-room-direction">Add Direction</button></p>
+        <ul id="room-directions"></ul>
+        
+        <p>Items: <button id="add-room-item">Add Item</button></p>
+        <ul id="room-items"></ul>
+    </div>
+
+    <div id="edit-item-info" class="edit-section">
+        <select id="item-selection"></select>
+        <button id="add-item">Add Item</button><br />
+        <input type="text" id="item-name" placeholder="Item Name...">
+        <input type="text" id="item-description" placeholder="Item Description...">
+
+        <p>Needed Room:</p>
+        <select id="item-needed-room"></select>
+        
+        <p>Replacement Room:</p>
+        <select id="item-replacement-room"></select>
+    </div>
+    
+    <script defer>
+        const fileSelectInput = document.querySelector('#file-select');
+        const saveMapButton = document.querySelector('#save-map');
+        const saveEncryptedMapButton = document.querySelector('#save-encrypted-map');
+
+        const editRoomRadio = document.querySelector('#edit-room-radio');
+        const editItemRadio = document.querySelector('#edit-item-radio');
+        const editRoomInfo = document.querySelector('#edit-room-info');
+        const editItemInfo = document.querySelector('#edit-item-info');
+
+        const roomSelect = document.querySelector('#room-selection');
+        const addRoomButton = document.querySelector('#add-room');
+        const deleteRoomButton = document.querySelector('#delete-room');
+        const roomNameInput = document.querySelector('#room-name');
+        const roomDescriptionInput = document.querySelector('#room-description');
+        const roomDirectionsList = document.querySelector('#room-directions');
+        const roomItemsList = document.querySelector('#room-items');
+        const addDirectionButton = document.querySelector('#add-room-direction');
+        const addRoomItemButton = document.querySelector('#add-room-item');
+
+        const itemSelect = document.querySelector('#item-selection');
+        const addItemButton = document.querySelector('#add-item');
+        const itemNameInput = document.querySelector('#item-name');
+        const itemDescriptionInput = document.querySelector('#item-description');
+        const itemNeededRoomSelect = document.querySelector('#item-needed-room');
+        const itemReplacementRoomSelect = document.querySelector('#item-replacement-room');
+
+        fileSelectInput.addEventListener('change', () => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.addEventListener('load', e => {
+                    loadMap(e.target.result);
+                });
+
+                reader.readAsText(file);
+            }
+        });
+
+        saveMapButton.addEventListener('click', () => {
+            saveMap(false);
+        });
+
+        saveEncryptedMapButton.addEventListener('click', () => {
+            saveMap(true);
+        });
+
+        editRoomRadio.addEventListener('click', () => {
+            editRoomInfo.classList.remove('show');
+            editItemInfo.classList.remove('show');
+
+            editRoomInfo.classList.add('show');
+            updateRoom(roomSelect.value);
+        });
+
+        editItemRadio.addEventListener('click', () => {
+            editRoomInfo.classList.remove('show');
+            editItemInfo.classList.remove('show');
+
+            editItemInfo.classList.add('show');
+            updateItem(itemSelect.value);
+        });
+
+        roomSelect.addEventListener('change', () => {
+            updateRoom(roomSelect.value);
+        });
+
+        roomNameInput.addEventListener('change', () => {
+            const currentRoom = rooms[roomSelect.value];
+            currentRoom.name = roomNameInput.value;
+
+            updateRoom(roomSelect.value);
+        });
+
+        roomDescriptionInput.addEventListener('change', () => {
+            const currentRoom = rooms[roomSelect.value];
+            currentRoom.description = roomDescriptionInput.value;
+        });
+
+        addRoomButton.addEventListener('click', () => {
+            const newRoom = {
+                name: 'New Room ' + rooms.length,
+                description: 'New Room Description',
+                directions: [],
+                items: []
+            };
+
+            rooms.push(newRoom);
+
+            updateRoom(rooms.length - 1);
+        });
+
+        deleteRoomButton.addEventListener('click', () => {
+            if (rooms.length > 0) {
+                rooms.splice(roomSelect.value, 1);
+                updateRoom((rooms.length > 0) ? '0' : null);
+            }
+        });
+
+        addDirectionButton.addEventListener('click', () => {
+            const currentRoom = rooms[roomSelect.value];
+            currentRoom.directions.push({
+                name: 'newdirection',
+                id: -1
+            });
+
+            updateRoom(roomSelect.value);
+        });
+
+        addRoomItemButton.addEventListener('click', () => {
+            const currentRoom = rooms[roomSelect.value];
+            currentRoom.items.push({
+                name: 'newitem',
+                id: -1
+            });
+
+            updateRoom(roomSelect.value);
+        });
+
+        itemSelect.addEventListener('change', () => {
+            updateItem(itemSelect.value);
+        });
+
+        itemNameInput.addEventListener('change', () => {
+            const currentItem = items[itemSelect.value];
+            currentItem.name = itemNameInput.value;
+
+            updateItem(itemSelect.value);
+        });
+
+        itemDescriptionInput.addEventListener('change', () => {
+            const currentItem = items[itemSelect.value];
+            currentItem.description = itemDescriptionInput.value;
+        });
+
+        addItemButton.addEventListener('click', () => {
+            const newItem = {
+                name: 'New Item ' + items.length,
+                description: 'New Item Description',
+                neededRoom: -1,
+                replacementRoom: -1
+            };
+
+            items.push(newItem);
+
+            updateItem(items.length - 1);
+        });
+
+        itemNeededRoomSelect.addEventListener('change', () => {
+            const currentItem = items[itemSelect.value];
+            currentItem.neededRoom = itemNeededRoomSelect.value;
+
+            updateItem(itemSelect.value);
+        });
+
+        itemReplacementRoomSelect.addEventListener('change', () => {
+            const currentItem = items[itemSelect.value];
+            currentItem.replacementRoom = itemReplacementRoomSelect.value;
+
+            updateItem(itemSelect.value);
+        });
+
+        let rooms = [];
+        let items = [];
+
+        const createSelect = list => {
+            const roomSelect = document.createElement('select');
+            for (let i = 0; i < list.length; i++) {
+                const option = document.createElement('option');
+                option.innerHTML = list[i].name;
+                option.value = i;
+                roomSelect.appendChild(option);
+            }
+            return roomSelect;
+        }
+
+        const updateRoom = (currentRoomID) => {
+            clearRoom();
+
+            if (currentRoomID == null || currentRoomID === '') return;
+
+            roomSelect.value = currentRoomID;
+            const currentRoom = rooms[currentRoomID];
+
+            roomNameInput.value = currentRoom.name;
+            roomDescriptionInput.value = currentRoom.description;
+
+            roomDirectionsList.innerHTML = '';
+            for (let i = 0; i < currentRoom.directions.length; i++) {
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.value = currentRoom.directions[i].name;
+                nameInput.addEventListener('change', () => {
+                    currentRoom.directions[i].name = nameInput.value;
+                });
+
+                const idInput = createSelect(rooms);
+                idInput.value = currentRoom.directions[i].id;
+                idInput.addEventListener('change', () => {
+                    currentRoom.directions[i].id = idInput.value;
+                });
+
+                const deleteButton = document.createElement('button');
+                deleteButton.innerHTML = 'Delete';
+                deleteButton.addEventListener('click', () => {
+                    currentRoom.directions.splice(i, 1);
+                    updateRoom(currentRoomID);
+                });
+
+                const listItem = document.createElement('li');
+                listItem.appendChild(nameInput);
+                listItem.appendChild(idInput);
+                listItem.appendChild(deleteButton);
+                roomDirectionsList.appendChild(listItem);
+            }
+
+            roomItemsList.innerHTML = '';
+            for (let i = 0; i < currentRoom.items.length; i++) {
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.value = currentRoom.items[i].name;
+                nameInput.addEventListener('change', () => {
+                    currentRoom.items[i].name = nameInput.value;
+                });
+
+                const idInput = createSelect(items);
+                idInput.value = currentRoom.items[i].id;
+                idInput.addEventListener('change', () => {
+                    currentRoom.items[i].id = idInput.value;
+                });
+
+                const deleteButton = document.createElement('button');
+                deleteButton.innerHTML = 'Delete';
+                deleteButton.addEventListener('click', () => {
+                    currentRoom.items.splice(i, 1);
+                    updateRoom(currentRoomID);
+                });
+
+                const listItem = document.createElement('li');
+                listItem.appendChild(nameInput);
+                listItem.appendChild(idInput);
+                listItem.appendChild(deleteButton);
+                roomItemsList.appendChild(listItem);
+            }
+        }
+
+        const clearRoom = () => {
+            let currentRoomID = roomSelect.value;
+            roomSelect.innerHTML = createSelect(rooms).innerHTML;
+            roomSelect.value = currentRoomID;
+
+            roomNameInput.value = '';
+            roomDescriptionInput.value = '';
+            roomDirectionsList.innerHTML = '';
+            roomItemsList.innerHTML = '';
+        }
+
+        const updateItem = (currentItemID) => {
+            clearItem();
+
+            if (currentItemID == null || currentItemID === '') return;
+
+            itemSelect.value = currentItemID;
+            const currentItem = items[currentItemID];
+
+            itemNameInput.value = currentItem.name;
+            itemDescriptionInput.value = currentItem.description;
+
+            itemNeededRoomSelect.innerHTML = createSelect(rooms).innerHTML
+            itemNeededRoomSelect.value = currentItem.neededRoom;
+
+            itemReplacementRoomSelect.innerHTML = createSelect(rooms).innerHTML
+            itemReplacementRoomSelect.value = currentItem.replacementRoom;
+        }
+
+        const clearItem = () => {
+            let currentItemID = itemSelect.value;
+            itemSelect.innerHTML = createSelect(items).innerHTML;
+            itemSelect.value = currentItemID;
+
+            itemNameInput.value = '';
+            itemDescriptionInput.value = '';
+            itemNeededRoomSelect.innerHTML = '';
+            itemReplacementRoomSelect.innerHTML = '';
+        }
+
+        const loadMap = (map) => {
+            let lines = map.replace(/\r/g, '').split(/\n/g);
+            let roomParsing = true;
+            for (let i = 1; i < lines.length; i += 5) {
+                if (lines[i].includes('---')) {
+                    roomParsing = false;
+                    i++;
+                }
+
+                if (roomParsing) {
+                    let id = lines[i];
+                    let name = lines[i + 1];
+                    let description = lines[i + 2];
+                    let directions = lines[i + 3];
+                    let items = lines[i + 4];
+
+                    directions = (directions == '') ? [] : directions.split(' ').map(pair => {
+                        return { name: pair.split(':')[0], id: pair.split(':')[1] }
+                    });
+
+                    items = (items == '') ? [] : items.split(' ').map(pair => {
+                        return { name: pair.split(':')[0], id: pair.split(':')[1] }
+                    });
+
+                    rooms[id] = {
+                        name, description,
+                        directions, items
+                    }
+                } else {
+                    let id = lines[i];
+                    let name = lines[i + 1];
+                    let description = lines[i + 2];
+                    let neededRoom = lines[i + 3];
+                    let replacementRoom = lines[i + 4];
+
+                    items[id] = {
+                        name, description,
+                        neededRoom, replacementRoom
+                    }
+                }
+            }
+
+            editRoomRadio.click();
+            updateItem();
+            updateRoom();
+        }
+
+        const saveMap = (encrypted) => {
+            let content = 'MAP_DATA\n';
+            for (let i = 0; i < rooms.length; i++) {
+                content += i + '\n';
+                content += rooms[i].name + '\n';
+                content += rooms[i].description + '\n';
+                content += rooms[i].directions.map(direction => direction.name + ':' + direction.id).join(' ') + '\n';
+                content += rooms[i].items.map(item => item.name + ':' + item.id).join(' ') + '\n';
+            }
+
+            content += '---\n';
+
+            for (let i = 0; i < items.length; i++) {
+                content += i + '\n';
+                content += items[i].name + '\n';
+                content += items[i].description + '\n';
+                content += items[i].neededRoom + '\n';
+                content += items[i].replacementRoom + '\n';
+            }
+
+            content = content.trimEnd();
+
+            if (encrypted) {
+                let key = 'riddles';
+                let encryptedContent = [];
+
+                for (let i = 0; i < content.length; i++) {
+                    encryptedContent[i] = content.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+                }
+
+                content = `${content.length}\n` + encryptedContent.map(byte => {
+                    return `\\x${byte.toString(16).padStart(2, '0')}`;
+                }).join('');
+            }
+
+            const download = document.createElement('a');
+            download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+            download.setAttribute('download', `map${encrypted ? '_encrypted' : ''}.txt`);
+
+            download.style.display = 'none';
+            document.body.appendChild(download);
+
+            download.click();
+
+            document.body.removeChild(download);
+        }
+
+        editRoomRadio.click();
+    </script>
+</body>
+
+</html>

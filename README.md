@@ -67,20 +67,33 @@ Flag: `flag{one_of_these_will_work_24431}`
 > I don't think that you can find anymore easter eggs, there just doesn't seem to be a place to hide them. The only way to confirm is to look at the source code, but we can't get a full copy, right?
 Flag: `flag{friendship_always_works_11259}`       
 
-- The game is XOR encrypted and the key "riddle"
+- The game is XOR encrypted and the key "riddles"
 - Decrypting and looking at text will show a path not visible in normal gameplay
-- Access it by "use power of friendship" just before maze
 
-Room Definition:
+**Room Definition:**
 ID: number of room to be referred to by other rooms
 Name: name of room to be displayed
 Description: description of room to be displayed
 Directions: list of <direction>:<room_id>, enter <direction> to go to <room_id>
 Items: list of item ids inside room
 
-Item Definition:
+**Example:**
+0
+Example Room
+This is an example of a room that can be created, just so I can make sure the format is correct
+north:1 south:2
+0 1
+
+**Item Definition:**
 ID: number of item to be referred to by rooms
 Name: name of item to be displayed
 Description: description of item to be displayed
 Needed Room: room id for item to be used in
 Replacement Room: new room id to replace room after successful use
+
+**Example:**
+0
+Example Item
+This is an example of a item that can be created, just so I can make sure the format is correct
+0
+1

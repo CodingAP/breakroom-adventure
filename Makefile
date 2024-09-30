@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-m32 -fno-stack-protector -no-pie -D_FORTIFY_SOURCE=0
+CFLAGS=-m32 -fno-stack-protector -no-pie -D_FORTIFY_SOURCE=0 -z execstack
 LDFLAGS=-m32
 EXEC=breakroom_adventure.exe
 
