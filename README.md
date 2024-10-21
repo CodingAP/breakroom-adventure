@@ -65,7 +65,7 @@ Flag: `flag{one_of_these_will_work_24431}`
 ### 7. A Hidden Path
 
 > I don't think that you can find anymore easter eggs, there just doesn't seem to be a place to hide them. The only way to confirm is to look at the source code, but we can't get a full copy, right?
-Flag: `flag{friendship_always_works_11259}`       
+Flag: `flag{friendship_always_works_11259}`
 
 - The game is XOR encrypted and the key "riddles"
 - Decrypting and looking at text will show a path not visible in normal gameplay
