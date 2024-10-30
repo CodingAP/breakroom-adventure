@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-m32 -fno-stack-protector -no-pie -D_FORTIFY_SOURCE=0 -z execstack
-LDFLAGS=-m32
-EXEC=breakroom_adventure.exe
+LDFLAGS=-m32 -static
+EXEC=breakroom_adventure
 
 all: $(EXEC)
 
